@@ -1,0 +1,20 @@
+{
+  "name": "@repo/store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "jotai": "^3.0.1"
+  },
+  "exports": {
+    "./useBalance": "./dist/src/hook/useBalance.js"
+  }
+}
