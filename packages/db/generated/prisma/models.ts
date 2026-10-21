@@ -11,5 +11,6 @@
 export type * from './models/User.js'
 export type * from './models/Merchant.js'
 export type * from './models/OnRampTransaction.js'
+export type * from './models/p2pTransfer.js'
 export type * from './models/Balance.js'
 export type * from './commonInputTypes.js'

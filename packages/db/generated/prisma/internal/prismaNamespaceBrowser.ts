@@ -54,6 +54,7 @@ export const ModelName = {
   User: 'User',
   Merchant: 'Merchant',
   OnRampTransaction: 'OnRampTransaction',
+  p2pTransfer: 'p2pTransfer',
   Balance: 'Balance'
 } as const
 
@@ -105,6 +106,17 @@ export const OnRampTransactionScalarFieldEnum = {
 } as const
 
 export type OnRampTransactionScalarFieldEnum = (typeof OnRampTransactionScalarFieldEnum)[keyof typeof OnRampTransactionScalarFieldEnum]
+
+
+export const P2pTransferScalarFieldEnum = {
+  id: 'id',
+  amount: 'amount',
+  timestamp: 'timestamp',
+  fromUserId: 'fromUserId',
+  toUserId: 'toUserId'
+} as const
+
+export type P2pTransferScalarFieldEnum = (typeof P2pTransferScalarFieldEnum)[keyof typeof P2pTransferScalarFieldEnum]
 
 
 export const BalanceScalarFieldEnum = {

@@ -400,6 +400,7 @@ export const ModelName = {
   User: 'User',
   Merchant: 'Merchant',
   OnRampTransaction: 'OnRampTransaction',
+  p2pTransfer: 'p2pTransfer',
   Balance: 'Balance'
 } as const
 
@@ -416,7 +417,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "merchant" | "onRampTransaction" | "balance"
+    modelProps: "user" | "merchant" | "onRampTransaction" | "p2pTransfer" | "balance"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -642,6 +643,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    p2pTransfer: {
+      payload: Prisma.$p2pTransferPayload<ExtArgs>
+      fields: Prisma.p2pTransferFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.p2pTransferFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.p2pTransferFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+        }
+        findFirst: {
+          args: Prisma.p2pTransferFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.p2pTransferFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+        }
+        findMany: {
+          args: Prisma.p2pTransferFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload>[]
+        }
+        create: {
+          args: Prisma.p2pTransferCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+        }
+        createMany: {
+          args: Prisma.p2pTransferCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.p2pTransferCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload>[]
+        }
+        delete: {
+          args: Prisma.p2pTransferDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+        }
+        update: {
+          args: Prisma.p2pTransferUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+        }
+        deleteMany: {
+          args: Prisma.p2pTransferDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.p2pTransferUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.p2pTransferUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload>[]
+        }
+        upsert: {
+          args: Prisma.p2pTransferUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+        }
+        aggregate: {
+          args: Prisma.P2pTransferAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateP2pTransfer>
+        }
+        groupBy: {
+          args: Prisma.p2pTransferGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.P2pTransferGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.p2pTransferCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.P2pTransferCountAggregateOutputType> | number
+        }
+      }
+    }
     Balance: {
       payload: Prisma.$BalancePayload<ExtArgs>
       fields: Prisma.BalanceFieldRefs
@@ -787,6 +862,17 @@ export const OnRampTransactionScalarFieldEnum = {
 } as const
 
 export type OnRampTransactionScalarFieldEnum = (typeof OnRampTransactionScalarFieldEnum)[keyof typeof OnRampTransactionScalarFieldEnum]
+
+
+export const P2pTransferScalarFieldEnum = {
+  id: 'id',
+  amount: 'amount',
+  timestamp: 'timestamp',
+  fromUserId: 'fromUserId',
+  toUserId: 'toUserId'
+} as const
+
+export type P2pTransferScalarFieldEnum = (typeof P2pTransferScalarFieldEnum)[keyof typeof P2pTransferScalarFieldEnum]
 
 
 export const BalanceScalarFieldEnum = {
@@ -1066,6 +1152,7 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   merchant?: Prisma.MerchantOmit
   onRampTransaction?: Prisma.OnRampTransactionOmit
+  p2pTransfer?: Prisma.p2pTransferOmit
   balance?: Prisma.BalanceOmit
 }
 
