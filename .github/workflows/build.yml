@@ -9,33 +9,34 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v7
+    env:
+      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/paytm"
 
-      - name: Use Node.js
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '24'
-      - name: Install npm version
+
+      - name: Setup npm
         run: npm install -g npm@11.6.0
-      
-      - name: Check DATABASE_URL
+
+      - name: Verify versions
         run: |
-          if [ -z "$DATABASE_URL" ]; then
-            echo "DATABASE_URL is missing"
-            exit 1
-          else
-            echo "DATABASE_URL is available"
-          fi
-        env:
-          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/paytm"
+          node --version
+          npm --version
 
-      - name: Generate prisma client
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Prisma
+        run: npm ls prisma @prisma/client --workspace=@repo/db
+
+      - name: Generate Prisma Client
         run: npm run db:generate
-        env:
-          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/paytm"
 
-      - name: Run Build
+      - name: Build
         run: npm run build
-        env:
-          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/paytm"
