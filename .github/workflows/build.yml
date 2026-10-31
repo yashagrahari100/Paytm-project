@@ -13,13 +13,14 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
-      
-      - name: Install Dependencies
-        run: npm install
+          node-version: '24'
       
       - name: Generate prisma client
         run: npm run db:generate
-        
+        env:
+          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/paytm"
+
       - name: Run Build
         run: npm run build
+        env:
+          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/paytm"
