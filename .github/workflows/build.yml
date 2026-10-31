@@ -16,7 +16,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '24'
-
+      - name: Install npm version
+        run: npm install -g npm@11.6.0
+      
       - name: Check DATABASE_URL
         run: |
           if [ -z "$DATABASE_URL" ]; then
