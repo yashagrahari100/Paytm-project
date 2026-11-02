@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "../provider";
 import { AppbarClient } from "../components/AppbarClient";
-
+import { DotRingCursor } from "../components/DotRingCursor";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -26,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
+        <DotRingCursor/>
         <AppbarClient/>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
